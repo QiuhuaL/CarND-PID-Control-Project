@@ -2,6 +2,34 @@
 Self-Driving Car Engineer Nanodegree Program
 
 ---
+## PID Control
+In this project, a PID controller is designed to steer the car so that the distance between the actual car position on the road and a reference trajectory, known as cross-track error (cte), is minimized. A PID controller has the following three components.
+
+### P - proportional control
+The proportional term computes a steering angle that is proportional to the cross-track error. A pure P - controller is unstable and the resulting controller makes the steering to osciallate side to side a lot when the coefficient is larger and not steer adpatly enough at turns when the coefficient is too small. 
+
+### D - differential control
+The derivative gain contributes to the steering angle that is proportional to the deravatives of the cross-track error. It counterparts the P-component's tendency to oscillates and overshoot problem. 
+
+### I - integral control
+The integral control contributes to the steering angle that is propotional to the summation of the cross-track error over time.  This component mitigates the system biases of steering. It also helps when the car travels at high speeds with less osciallations.
+
+## PID Parameters
+The proportional coeficients of the PID controller was tuned manually with consideration of their effects. Other methods such as the Twiddle method introduced in the class could be implemented to optimize the pararmeters in a more systematic way.
+
+For this project, two PID controller was implmented, one for the steering angle and one for the throttle to control the speed.
+## Steering PID 
+The parameters for the steering PID were manually tuned and finally chosen as :
+  double Kp_st = 0.15;
+  double Ki_st = 0.0012;
+  double Kd_st = 3.5;
+
+## Steering PID 
+The parameters for the throttle PID was based on the distance betweeen the desired driving speed and the current speed. The parameters were manually tuned and finally chosen as :
+  double Kp_th = 0.3;
+  double Ki_th = 0.0001;
+  double Kd_th = 0.5;
+The target speed from 30 to 50 were used in the experiments using the simulator.
 
 ## Dependencies
 

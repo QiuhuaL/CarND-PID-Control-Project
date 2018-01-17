@@ -41,7 +41,7 @@ int main()
   PID pid_th = PID(); 
   // Initial parameter for PID_steer
   double Kp_st = 0.15;
-  double Ki_st = 0.0008;
+  double Ki_st = 0.0012;
   double Kd_st = 3.5;
   //Initial Parameter for PID_throttle
   double Kp_th = 0.3;
@@ -65,7 +65,7 @@ int main()
           // j[1] is the data JSON object
           double cte = std::stod(j[1]["cte"].get<std::string>());
           double speed = std::stod(j[1]["speed"].get<std::string>());
-          double angle = std::stod(j[1]["steering_angle"].get<std::string>());
+         // double angle = std::stod(j[1]["steering_angle"].get<std::string>());
           double steer_value, throttle_value;
           /*
           * TODO: Calcuate steering value here, remember the steering value is
